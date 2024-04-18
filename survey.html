@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Survey Form</title>
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background: #0056b3;
+        }
+        .radio-group input[type="radio"] {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .radio-group label {
+            display: inline;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Survey Form</h1>
+        <form action="#" method="post">
+            <label for="fullname">1. Full Name:</label>
+            <input type="text" id="fullname" name="fullname" required>
+
+            <label for="cohort">2. Cohort:</label>
+            <input type="text" id="cohort" name="cohort" required>
+
+            <label for="age">3. Age:</label>
+            <input type="text" id="age" name="age">
+
+            <label for="gender">4. Gender:</label>
+            <select id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="overall">5. Overall, how satisfied are you with the program you're doing?</label>
+            <select id="overall" name="overall">
+                <option value="ns">1-Not satisfied</option>
+                <option value="ss">2-Satisfied</option>
+                <option value="es">3-Extremely satisfied</option>
+            </select>
+
+            <label for="mentorship">6. How would you rate the level of mentorship and guidance provided to you during your program?</label>
+            <select id="mentorship" name="mentorship">
+                <option value="poor">1-Poor</option>
+                <option value="fair">2-Fair</option>
+                <option value="average">3-Average</option>
+                <option value="good">4-Good</option>
+                <option value="excellent">5-Excellent</option>
+            </select>
+
+            <label for="communication">7. On a scale of 1-5, how would you rate the level of communication within capacity?</label><br>
+            <div class="radio-group">
+                <input type="radio" id="communication1" name="communication" value="1">
+                <label for="communication1">1</label>
+                <input type="radio" id="communication2" name="communication" value="2">
+                <label for="communication2">2</label>
+                <input type="radio" id="communication3" name="communication" value="3">
+                <label for="communication3">3</label>
+                <input type="radio" id="communication4" name="communication" value="4">
+                <label for="communication4">4</label>
+                <input type="radio" id="communication5" name="communication" value="5">
+                <label for="communication5">5</label>
+            </div>
+
+
+            <label for="inclusivity">8. Do you feel that Capaciti provides a safe and inclusive work environment?</label>
+            <select id="inclusivity" name="inclusivity">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="development">9. How would you rate Capaciti's commitment to employee development and growth?</label><br>
+            <input type="radio" id="development1" name="development" value="1">
+            <label for="development1">1-Not committed</label><br>
+            <input type="radio" id="development2" name="development" value="2">
+            <label for="development2">2-Slightly committed</label><br>
+            <input type="radio" id="development3" name="development" value="3">
+            <label for="development3">3-Moderately committed</label><br>
+            <input type="radio" id="development4" name="development" value="4">
+            <label for="development4">4-Very committed</label><br>
+            <input type="radio" id="development5" name="development" value="5">
+            <label for="development5">5-Extremely committed</label><br>
+
+            <label for="workload">10. Is your workload manageable?</label>
+            <select id="workload" name="workload">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            
+            <label for="resource">11. Do you have access to necessary resources and tools to perform your tasks effectively?</label>
+            <select id="resource" name="resource">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="tasks">12. On a scale of 1-5, how would you rate the relevance of the tasks/projects assigned to you?</label><br>
+            <input type="radio" id="tasks1" name="tasks" value="1">
+            <label for="tasks1">1-Not relevant</label><br>
+            <input type="radio" id="tasks2" name="tasks" value="2">
+            <label for="tasks2">2-Slightly relevant</label><br>
+            <input type="radio" id="tasks3" name="tasks" value="3">
+            <label for="tasks3">3-Moderately</label><br>
+            <input type="radio" id="tasks4" name="tasks" value="4">
+            <label for="tasks4">4-Very relevant</label><br>
+            <input type="radio" id="tasks5" name="tasks" value="5">
+            <label for="tasks5">5-Extremely relevant</label><br>
+
+            <label for="feedback">13. Feedback:</label>
+            <textarea id="feedback" name="feedback" rows="4"></textarea>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
