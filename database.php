@@ -1,16 +1,35 @@
 <?php
-// PHP Data Objects(PDO) Sample Code:
-try {
-    $conn = new PDO("sqlsrv:server = tcp:rratings.database.windows.net,1433; Database = ratings", "rratings-admin", "{your_password_here}");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-catch (PDOException $e) {
-    print("Error connecting to SQL Server.");
-    die(print_r($e));
-}
 
-// SQL Server Extension Sample Code:
-$connectionInfo = array("UID" => "rratings-admin", "pwd" => "{your_password_here}", "Database" => "ratings", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
-$serverName = "tcp:rratings.database.windows.net,1433";
-$conn = sqlsrv_connect($serverName, $connectionInfo);
+$fullname=$_POST['fullname'];
+$cohort=$_POST['cohort'];
+$age=$_POST['age'];
+$gender=$_POST['gender'];
+$overall=$_POST['overall'];
+$mentorship=$_POST['mentorship'];
+$communication=$_POST['communication'];
+$inclusivity=$_POST['inclusivity'];
+$development=$_POST['development'];
+$workload=$_POST['workload'];
+$resources=$_POST['resources'];
+$tasks=$_POST['tasks'];
+$feedback=$_POST['feedback'];
+
+//Database connection
+
+$conn = new mysqli('localhost','root','','trying');
+
+if($conn){
+    $stmt =$conn->prepare("insert into datatest(fullname,cohort,age,gender,overall,mentorship,communication,inclusivity,development,workload,resources,tasks,feedback)
+    values(?,?,?,?,?,?,?,?,?,?,?,?,?)");
+    $stmt->bind_param("ssissssssssss",$fullname,$cohort,$age,$gender,$mentorship,$communication,$inclusivity,$development,$workload,$resources,$tasks,$feedback);
+    $stmt->execute();
+    echo "your response has been submitted thank you for your participation";
+    $stmt->close();
+    $conn->close();
+    
+}
+else{
+    die('Connection Failed : ', $conn->connect_error);
+
+}
 ?>
