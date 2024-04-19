@@ -3,6 +3,11 @@
 <head>
     <title>Survey Form</title>
     <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
         .container {
             max-width: 600px;
             margin: 20px auto;
@@ -10,10 +15,23 @@
             background: #f9f9f9;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .header-img {
+            position: absolute;
+            top: 0;
+            right: 0;
+            max-width: 100px;
+            max-height: 100px;
+        }
+        h1 {
+            text-align: center;
+            color: #6e2f8a;
         }
         label {
             display: block;
             margin-bottom: 10px;
+            color: #6e2f8a;
         }
         input[type="text"],
         select,
@@ -26,7 +44,7 @@
             margin-bottom: 10px;
         }
         input[type="submit"] {
-            background: #007bff;
+            background: #6e2f8a;
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -34,21 +52,28 @@
             cursor: pointer;
         }
         input[type="submit"]:hover {
-            background: #0056b3;
+            background: #4b145b;
         }
         .radio-group input[type="radio"] {
             display: inline;
             margin-right: 10px;
         }
-
         .radio-group label {
             display: inline;
             margin-right: 20px;
+        }
+        select {
+            background-color: #f3e8ff;
+        }
+        textarea {
+            resize: vertical;
+            background-color: #f3e8ff;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <img class="header-img" src="data:image/jpeg;base64,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" alt="Header Image">
         <h1>Survey Form</h1>
         <form action="database.php" method="post">
             <label for="fullname">1. Full Name:</label>
@@ -96,7 +121,6 @@
                 <input type="radio" id="communication5" name="communication" value="5">
                 <label for="communication5">5</label>
             </div>
-
 
             <label for="inclusivity">8. Do you feel that Capaciti provides a safe and inclusive work environment?</label>
             <select id="inclusivity" name="inclusivity">
